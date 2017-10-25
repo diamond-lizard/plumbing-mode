@@ -50,6 +50,11 @@
     table)
   "Syntax table in use in `plumbing-mode' buffers.")
 
+(defface plumbing-equals-sign
+  '((t :inherit font-lock-builtin-face))
+  "Face for equals-sign in plumbing-mode."
+  :group 'plumbing)
+
 (defface plumbing-message-type
   '((t :inherit font-lock-keyword-face))
   "Face for message-type keywords in plumbing-mode."
@@ -91,6 +96,7 @@
 
   (setq plumbing-rx-constituents
     `((symbol plumbing-rx-symbol 0 nil)
+      (equals-sign   . ,(rx "="))
       (message-type . ,(rx (or "arg"
                                "attr"
                                "data"
@@ -150,6 +156,8 @@ are available:
   `(
     ;; comments
     (,"^#.*" 0 font-lock-comment-face)
+    ;; equals sign
+    (,(plumbing-rx equals-sign) 0 'plumbing-equals-sign)
     ;; message types
     (,(plumbing-rx (symbol message-type)) 0 'plumbing-message-type)
     ;; Variables
