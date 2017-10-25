@@ -108,7 +108,7 @@
     (let ((body (cdr form)))
       (rx-to-string `(and symbol-start ,@body symbol-end) 'no-group)))
 
-  (setq plumbing-rx-constituents
+  (defconst plumbing-rx-constituents
     `((symbol plumbing-rx-symbol 0 nil)
       (string-delimiter  . ,(rx "'"))
       (string       . ,(rx "'"
@@ -169,7 +169,7 @@ are available:
              (rx-to-string (car sexps) t))))))
 
 
-(setq plumbing-font-lock-keywords
+(defvar plumbing-font-lock-keywords
   `(
     ;; comments
     (,"^#.*" 0 font-lock-comment-face)
@@ -192,8 +192,8 @@ are available:
     ;; Text
     (,(plumbing-rx text) 1 'plumbing-text)
     ;; Variable assignment
-    ("\\([^[:blank:]=\n]+\\)[[:blank:]]*?=" 1 'plumbing-variable-assignment)))
-;  "Font lock keywords for plumbing-mode.")
+    ("\\([^[:blank:]=\n]+\\)[[:blank:]]*?=" 1 'plumbing-variable-assignment))
+  "Font lock keywords for plumbing-mode.")
 
 ;;;###autoload
 (define-derived-mode plumbing-mode prog-mode "Plumbing" ()
