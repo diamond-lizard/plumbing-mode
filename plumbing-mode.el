@@ -64,6 +64,11 @@
   "Face for equals-sign in plumbing-mode."
   :group 'plumbing)
 
+(defface plumbing-include
+  '((t :inherit font-lock-keyword-face))
+  "Face for include keyword in plumbing-mode."
+  :group 'plumbing)
+
 (defface plumbing-message-type
   '((t :inherit font-lock-keyword-face))
   "Face for message-type keywords in plumbing-mode."
@@ -115,6 +120,7 @@
                            (group (one-or-more (not (any "'\n"))))
                            "'"))
       (equals-sign   . ,(rx "="))
+      (include      . ,(rx "include"))
       (message-type . ,(rx (or "arg"
                                "attr"
                                "data"
@@ -180,6 +186,8 @@ are available:
     (,(plumbing-rx string-delimiter) 0 'plumbing-string-delimiter)
     ;; equals sign
     (,(plumbing-rx equals-sign) 0 'plumbing-equals-sign)
+    ;; include
+    (,(plumbing-rx (symbol include)) 0 'plumbing-include)
     ;; message types
     (,(plumbing-rx (symbol message-type)) 0 'plumbing-message-type)
     ;; Variables
