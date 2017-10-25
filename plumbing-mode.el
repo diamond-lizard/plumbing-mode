@@ -152,6 +152,15 @@ are available:
 `(symbol SEXP …)'
      Match SEXPs inside symbol boundaries only
 
+`string'
+     A string, excluding the string delimiters
+
+`string-delimiter'
+     The delimiters delimiting a string
+
+`include'
+     The include keyword
+
 `message-type'
      Any valid plumbing message type
 
