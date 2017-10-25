@@ -50,9 +50,34 @@
     table)
   "Syntax table in use in `plumbing-mode' buffers.")
 
-(defface plumbing-regular-expression-literal
+(defface plumbing-message-type
+  '((t :inherit font-lock-keyword-face))
+  "Face for message-type keywords in plumbing-mode."
+  :group 'plumbing)
+
+(defface plumbing-variable-name
+  '((t :inherit font-lock-variable-name-face))
+  "Face for variable names in plumbing-mode."
+  :group 'plumbing)
+
+(defface plumbing-verb
+  '((t :inherit font-lock-preprocessor-face))
+  "Face for verb keywords in plumbing-mode."
+  :group 'plumbing)
+
+(defface plumbing-object
   '((t :inherit font-lock-constant-face))
-  "Face for regular expression literals in plumbing-mode."
+  "Face for object keywords in plumbing-mode."
+  :group 'plumbing)
+
+(defface plumbing-action-verb
+  '((t :inherit font-lock-type-face))
+  "Face for action verb keywords in plumbing-mode."
+  :group 'plumbing)
+
+(defface plumbing-text
+  '((t :inherit font-lock-function-name-face))
+  "Face for text literal in plumbing-mode."
   :group 'plumbing)
 
 
@@ -126,17 +151,17 @@ are available:
     ;; comments
     (,"^#.*" 0 font-lock-comment-face)
     ;; message types
-    (,(plumbing-rx (symbol message-type)) 0 font-lock-keyword-face)
+    (,(plumbing-rx (symbol message-type)) 0 'plumbing-message-type)
     ;; Variables
-    (,"\$[A-Za-z0-9_]+" 0 font-lock-variable-name-face)
+    (,"\$[A-Za-z0-9_]+" 0 'plumbing-variable-name)
     ;; Verbs
-    (,(plumbing-rx (symbol verb)) 0 font-lock-builtin-face)
+    (,(plumbing-rx (symbol verb)) 0 'plumbing-verb)
     ;; Objects
-    (,(plumbing-rx (symbol object)) 0 font-lock-builtin-face)
+    (,(plumbing-rx (symbol object)) 0 'plumbing-object)
     ;; Action verbs
-    (,(plumbing-rx (symbol action-verb)) 0 font-lock-builtin-face)
+    (,(plumbing-rx (symbol action-verb)) 0 'plumbing-action-verb)
     ;; Text
-    (,(plumbing-rx text) 1 font-lock-builtin-face)))
+    (,(plumbing-rx text) 1 'plumbing-text)))
 ;  "Font lock keywords for plumbing-mode.")
 
 ;;;###autoload
