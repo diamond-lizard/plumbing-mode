@@ -102,7 +102,7 @@
 
 ;;; Specialized rx
 
-;(eval-when-compile
+(eval-when-compile
   (defun plumbing-rx-symbol (form)
     "Translate FORM into a regular expression."
     (let ((body (cdr form)))
@@ -166,8 +166,7 @@ are available:
             ((cdr sexps)
              (rx-to-string `(and ,@sexps) t))
             (t
-             (rx-to-string (car sexps) t)))))
-;)
+             (rx-to-string (car sexps) t))))))
 
 
 (setq plumbing-font-lock-keywords
