@@ -112,7 +112,7 @@
     `((symbol plumbing-rx-symbol 0 nil)
       (string-delimiter  . ,(rx "'"))
       (string       . ,(rx "'"
-                           (group (one-or-more (not (any "'"))))
+                           (group (one-or-more (not (any "'\n"))))
                            "'"))
       (equals-sign   . ,(rx "="))
       (message-type . ,(rx (or "arg"
