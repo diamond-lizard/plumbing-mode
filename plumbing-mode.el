@@ -54,6 +54,11 @@
   "Face for string delimiters in plumbing-mode."
   :group 'plumbing)
 
+(defface plumbing-string
+  '((t :inherit font-lock-string-face))
+  "Face for strings in plumbing-mode."
+  :group 'plumbing)
+
 (defface plumbing-equals-sign
   '((t :inherit font-lock-builtin-face))
   "Face for equals-sign in plumbing-mode."
@@ -101,6 +106,9 @@
   (setq plumbing-rx-constituents
     `((symbol plumbing-rx-symbol 0 nil)
       (string-delimiter  . ,(rx "'"))
+      (string       . ,(rx "'"
+                           (group (one-or-more (not (any "'"))))
+                           "'"))
       (equals-sign   . ,(rx "="))
       (message-type . ,(rx (or "arg"
                                "attr"
@@ -161,6 +169,8 @@ are available:
   `(
     ;; comments
     (,"^#.*" 0 font-lock-comment-face)
+    ;; strings
+    (,(plumbing-rx string) 1 'plumbing-string)
     ;; string delimiters
     (,(plumbing-rx string-delimiter) 0 'plumbing-string-delimiter)
     ;; equals sign
