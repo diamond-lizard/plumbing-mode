@@ -44,11 +44,15 @@
 
 
 ;;; Font locking
-(defvar plumbing-mode-syntax-table
+(setq plumbing-mode-syntax-table
   (let ((table (make-syntax-table)))
-    (modify-syntax-entry ?\' "\"'" table)
-    table)
-  "Syntax table in use in `plumbing-mode' buffers.")
+    table))
+;  "Syntax table in use in `plumbing-mode' buffers.")
+
+(defface plumbing-string-delimiter
+  '((t :inherit font-lock-negation-char-face))
+  "Face for string delimiters in plumbing-mode."
+  :group 'plumbing)
 
 (defface plumbing-equals-sign
   '((t :inherit font-lock-builtin-face))
@@ -96,6 +100,7 @@
 
   (setq plumbing-rx-constituents
     `((symbol plumbing-rx-symbol 0 nil)
+      (string-delimiter  . ,(rx "'"))
       (equals-sign   . ,(rx "="))
       (message-type . ,(rx (or "arg"
                                "attr"
@@ -156,6 +161,8 @@ are available:
   `(
     ;; comments
     (,"^#.*" 0 font-lock-comment-face)
+    ;; string delimiters
+    (,(plumbing-rx string-delimiter) 0 'plumbing-string-delimiter)
     ;; equals sign
     (,(plumbing-rx equals-sign) 0 'plumbing-equals-sign)
     ;; message types
