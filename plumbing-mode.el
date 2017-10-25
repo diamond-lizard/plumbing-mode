@@ -225,6 +225,8 @@ are available:
 ;;                         our mode's keywords             |        keywords?
 ;;                                                      disable
 ;;                                                    font lock?
+  (setq-local comment-start "^#")
+  (setq-local comment-end "\n")
 )
 
 ;;;###autoload
