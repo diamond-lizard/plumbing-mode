@@ -211,36 +211,6 @@ are available:
 ;;                                                    font lock?
 )
 
-;; (defvar plumbing-mode-font-lock-keywords)
-;; (setq plumbing-mode-font-lock-keywords
-;;       `(
-;;         ("#.*"                         . font-lock-comment-face)
-;;         ("^  ID:"                      . font-lock-keyword-face)
-;;         ("^  UUID:"                    . font-lock-keyword-face)
-;;         ("^  Status:"                  . font-lock-keyword-face)
-;;         ("^  Mask:"                    . font-lock-keyword-face)
-;;         ("^  iMask:"                   . font-lock-keyword-face)
-;;         ("^  Project:"                 . font-lock-keyword-face)
-;;         ("^  Tags:"                    . font-lock-keyword-face)
-;;         ("^  Description:"             . font-lock-keyword-face)
-;;         ("^  Created:"                 . font-lock-keyword-face)
-;;         ("^  Started:"                 . font-lock-keyword-face)
-;;         ("^  Ended:"                   . font-lock-keyword-face)
-;;         ("^  Scheduled:"               . font-lock-keyword-face)
-;;         ("^  Due:"                     . font-lock-keyword-face)
-;;         ("^  Until:"                   . font-lock-keyword-face)
-;;         ("^  Recur:"                   . font-lock-keyword-face)
-;;         ("^  Wait until:"              . font-lock-keyword-face)
-;;         ("^  Modified:"                . font-lock-keyword-face)
-;;         ("^  Parent:"                  . font-lock-keyword-face)
-;;         ("^  Annotation:"              . font-lock-keyword-face)
-;;         ("^  Dependencies:"            . font-lock-keyword-face)
-;;         ("^  User Defined Attributes:" . font-lock-keyword-face)
-;;         ("^  UDA priority:"            . font-lock-keyword-face)
-;;        )
-;; )
-
-
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.plumbing\\'" . plumbing-mode))
 
