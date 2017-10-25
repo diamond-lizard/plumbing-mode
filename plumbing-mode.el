@@ -94,6 +94,11 @@
   "Face for text literal in plumbing-mode."
   :group 'plumbing)
 
+(defface plumbing-variable-assignment
+  '((t :inherit font-lock-variable-name-face))
+  "Face for variable assignment in plumbing-mode."
+  :group 'plumbing)
+
 
 ;;; Specialized rx
 
@@ -186,7 +191,9 @@ are available:
     ;; Action verbs
     (,(plumbing-rx (symbol action-verb)) 0 'plumbing-action-verb)
     ;; Text
-    (,(plumbing-rx text) 1 'plumbing-text)))
+    (,(plumbing-rx text) 1 'plumbing-text)
+    ;; Variable assignment
+    ("\\([^[:blank:]=\n]+\\)[[:blank:]]*?=" 1 'plumbing-variable-assignment)))
 ;  "Font lock keywords for plumbing-mode.")
 
 ;;;###autoload
