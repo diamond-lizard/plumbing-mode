@@ -218,13 +218,19 @@ are available:
 
 \\{plumbing-mode-map}"
 ;; Font locking
-(setq font-lock-defaults '((plumbing-font-lock-keywords) nil nil))
+(setq font-lock-defaults '((plumbing-font-lock-keywords)  t  nil))
 ;;                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^ ^^^
 ;;                                      /                 \   \
 ;;                       name of variable which holds      |   \__ case-insensitive
 ;;                         our mode's keywords             |        keywords?
-;;                                                      disable
-;;                                                    font lock?
+;;                                                         |
+;;                                                   keyword-only font lock?
+;;                                              (disable syntactic fontification)
+;;
+;; Note: Setting the keyword-only argument to t in the font-lock-defaults above
+;;       is necessary because if it's set to nil, the font-lock defaults will
+;;       screw up comments with double-quoted strings in them and will also
+;;       font-lock double-quoted strings, which is not what we want.
   (setq-local comment-start "^#")
   (setq-local comment-end "\n")
 )
