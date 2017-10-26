@@ -233,6 +233,7 @@ are available:
 ;;       font-lock double-quoted strings, which is not what we want.
   (setq-local comment-start "^#")
   (setq-local comment-end "\n")
+  (setq-local comment-start-skip "^#")
 )
 
 ;;;###autoload
