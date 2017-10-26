@@ -231,9 +231,6 @@ are available:
 ;;       is necessary because if it's set to nil, the font-lock defaults will
 ;;       screw up comments with double-quoted strings in them and will also
 ;;       font-lock double-quoted strings, which is not what we want.
-  (setq-local comment-start "^#")
-  (setq-local comment-end "\n")
-  (setq-local comment-start-skip "^#")
 )
 
 ;;;###autoload
