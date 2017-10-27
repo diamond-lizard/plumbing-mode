@@ -44,7 +44,7 @@
 
 
 ;;; Font locking
-(setq plumbing-mode-syntax-table
+(defvar plumbing-mode-syntax-table
   (let ((table (make-syntax-table)))
     table))
 ;  "Syntax table in use in `plumbing-mode' buffers.")
