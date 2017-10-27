@@ -1,7 +1,7 @@
 * plumbing-mode - Emacs font lock for Plan 9's plumber configuration files
 
 This mode does very basic syntax highlighting of configuration
-files used by Plan 9's plumber
+files used by [[http://doc.cat-v.org/plan_9/4th_edition/papers/plumb][Plan 9's plumber]]
 
 ---
 
