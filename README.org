@@ -1,4 +1,4 @@
-* plumbing-mode - font lock for Plan 9's plumber configuration files
+* plumbing-mode - Emacs font lock for Plan 9's plumber configuration files
 
 This mode does very basic syntax highlighting of configuration
 files used by Plan 9's plumber
@@ -17,3 +17,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
